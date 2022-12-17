@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +19,14 @@ import com.sdc.dto.StudentResponse;
 import com.sdc.model.Student;
 import com.sdc.service.StudentService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/students")
+@RequiredArgsConstructor
 public class StudentController {
 
-	@Autowired
-	private StudentService studentService;
+	private final StudentService studentService;
 
 	@GetMapping
 	public List<StudentResponse> students() {
