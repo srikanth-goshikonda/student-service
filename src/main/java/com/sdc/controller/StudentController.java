@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +20,13 @@ import com.sdc.dto.StudentResponse;
 import com.sdc.model.Student;
 import com.sdc.service.StudentService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/students")
 @RequiredArgsConstructor
+@Tag(name = "Student API Endpoints")
 public class StudentController {
 
 	private final StudentService studentService;
@@ -41,6 +44,24 @@ public class StudentController {
 
 		if (student.isPresent()) {
 			return ResponseEntity.ok(student.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+
+	}
+
+	@PutMapping("{id}")
+	public ResponseEntity<?> studentUpdate(@RequestBody @Valid StudentRequest request, @PathVariable Integer id) {
+
+		Boolean existById = this.studentService.existById(id);
+		if (existById) {
+
+			Student student = request.convertToStudentEntity();
+			student.setRollNumber(id);
+			Student saveStudent = this.studentService.saveStudent(student);
+
+			return new ResponseEntity<StudentResponse>(saveStudent.convertToStudentResponse(), HttpStatus.OK);
+
 		} else {
 			return ResponseEntity.notFound().build();
 		}

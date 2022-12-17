@@ -28,4 +28,8 @@ public class StudentService {
 		return this.studentRepository.findAll();
 	}
 
+	public Boolean existById(Integer id) {
+		return this.studentRepository.existsById(id);
+	}
+
 }

@@ -3,6 +3,7 @@ package com.sdc.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.sdc.model.Student;
 
@@ -19,7 +20,7 @@ public class StudentRequest {
 	private String firstName;
 	@NotBlank(message = "Last Name should not be blank")
 	private String lastName;
-	@NotBlank(message = "Age should not be blank")
+	@NotNull(message = "Age should not be blank")
 	@Min(value = 15, message = "minimum age should be 15")
 	private Integer age;
 	@NotBlank(message = "Email should not be blank")
