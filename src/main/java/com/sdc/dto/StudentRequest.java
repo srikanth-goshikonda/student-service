@@ -19,8 +19,10 @@ public class StudentRequest {
 	private String firstName;
 	@NotBlank(message = "Last Name should not be blank")
 	private String lastName;
-	@Min(value =  15, message = "minimum age should be 15")
+	@NotBlank(message = "Age should not be blank")
+	@Min(value = 15, message = "minimum age should be 15")
 	private Integer age;
+	@NotBlank(message = "Email should not be blank")
 	@Email(message = "Please provide valid email address")
 	private String emailId;
 

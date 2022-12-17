@@ -1,0 +1,17 @@
+[33mcommit ab2f35e386d5cf49101619c56c5915fcaa816b74[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Srikanth NANI <you@example.com>
+Date:   Sat Dec 17 08:25:50 2022 +0530
+
+    replaced autowired with lomok
+
+[33mcommit 9e62ee2213ab7a38efbec2b13fc949d8b2faf410[m
+Author: Srikanth NANI <you@example.com>
+Date:   Sat Dec 17 08:18:07 2022 +0530
+
+    basic functionality added
+
+[33mcommit 7f3f388596fdf1860acc96aaa0be3d127606dc6a[m
+Author: Srikanth NANI <srikanthgoshikonda@gmail.com>
+Date:   Fri Dec 16 21:02:13 2022 +0530
+
+    Project Initialization

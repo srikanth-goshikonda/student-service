@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	public static String listToString(List<String> stringList) {
+	private static String listToString(List<String> stringList) {
 		StringBuilder builder = new StringBuilder();
 		for (String s : stringList) {
 			builder.append(s).append(" ");
